@@ -23,6 +23,9 @@ import "element-plus/dist/index.css";
 import "./assets/iconfont/iconfont.js";
 import "./assets/iconfont/iconfont.css";
 
+import NutUI from "@nutui/nutui";
+import "@nutui/nutui/dist/style.css";
+
 const app = createApp(App);
 
 // 自定义指令
@@ -56,6 +59,7 @@ getPlatformConfig(app).then(async config => {
     .use(ElementPlus)
     .use(Table)
     .use(PureDescriptions)
-    .use(useEcharts);
+    .use(useEcharts)
+    .use(NutUI);
   app.mount("#app");
 });
