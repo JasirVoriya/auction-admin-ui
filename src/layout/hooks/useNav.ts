@@ -2,7 +2,6 @@ import { storeToRefs } from "pinia";
 import { getConfig } from "@/config";
 import { useRouter } from "vue-router";
 import { emitter } from "@/utils/mitt";
-import userAvatar from "@/assets/user.jpg";
 import { getTopMenu } from "@/router/utils";
 import { useGlobal } from "@pureadmin/utils";
 import type { routeMetaType } from "../types";
@@ -13,8 +12,11 @@ import { useAppStoreHook } from "@/store/modules/app";
 import { useUserStoreHook } from "@/store/modules/user";
 import { useEpThemeStoreHook } from "@/store/modules/epTheme";
 import { usePermissionStoreHook } from "@/store/modules/permission";
+//导入我自己的userStore
+import { useMyUserStore } from "@/store/modules/my-user";
 
 const errorInfo = "当前路由配置不正确，请检查配置";
+const userAvatar = useMyUserStore().userInfo.avatar;
 
 export function useNav() {
   const pureApp = useAppStoreHook();

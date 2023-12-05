@@ -6,7 +6,7 @@ export default {
   },
   children: [
     {
-      path: "/goods/list/index",
+      path: "/goods/list",
       name: "GoodsList",
       component: () => import("@/views/goods/list/index.vue"),
       meta: {
@@ -14,7 +14,7 @@ export default {
       }
     },
     {
-      path: "/goods/category/index",
+      path: "/goods/category",
       name: "GoodsCategory",
       component: () => import("@/views/goods/category/index.vue"),
       meta: {
@@ -22,11 +22,21 @@ export default {
       }
     },
     {
-      path: "/goods/post/index",
+      path: "/goods/post",
       name: "GoodsPost",
       component: () => import("@/views/goods/post/index.vue"),
       meta: {
         title: "商品发布"
+      }
+    },
+    {
+      path: "/goods/detail/:goodsId",
+      name: "GoodsDetail",
+      component: () => import("@/views/goods/post/GoodsDetail.vue"),
+      props: true,
+      meta: {
+        title: "商品详情",
+        showLink: false
       }
     }
   ]

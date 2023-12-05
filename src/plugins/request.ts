@@ -1,4 +1,4 @@
-import { useUserStore } from "@/store/modules/my-user";
+import { useMyUserStore } from "@/store/modules/my-user";
 import axios, { type AxiosError } from "axios";
 import { ElMessage } from "element-plus";
 import qs from "qs";
@@ -10,8 +10,11 @@ interface ApiResponse<T> {
   message?: string;
   code?: Number;
 }
+const baseUrl = 'http://localhost:8080/'
+const uploadUrl = `${baseUrl}file/upload`
+const downloadUrl = `${baseUrl}file/download`
 const service = axios.create({
-  baseURL: "http://localhost:8080/",
+  baseURL: baseUrl,
   timeout: 1000,
   paramsSerializer: params => qs.stringify(params, { arrayFormat: "repeat" })
 });
@@ -28,17 +31,17 @@ service.interceptors.request.use(
       config.data = qs.stringify(config.data, { arrayFormat: "repeat" });
     }
     // 添加设备唯一标识
-    if (useUserStore().uuid === "") useUserStore().uuid = uuidv4();
-    config.headers["uuid"] = useUserStore().uuid;
+    if (useMyUserStore().uuid === "") useMyUserStore().uuid = uuidv4();
+    config.headers["uuid"] = useMyUserStore().uuid;
 
     // 添加accessToken和refreshToken
     if (config.needToken) {
       // 添加accessToken
-      if (useUserStore().accessToken !== "")
-        config.headers["accessToken"] = useUserStore().accessToken;
+      if (useMyUserStore().accessToken !== "")
+        config.headers["accessToken"] = useMyUserStore().accessToken;
       // 添加refreshToken
-      if (useUserStore().refreshToken !== "")
-        config.headers["refreshToken"] = useUserStore().refreshToken;
+      if (useMyUserStore().refreshToken !== "")
+        config.headers["refreshToken"] = useMyUserStore().refreshToken;
     }
     return config;
   },
@@ -71,3 +74,4 @@ export const Method = {
   PUT: "put",
   DELETE: "delete"
 };
+export { uploadUrl, baseUrl, downloadUrl }

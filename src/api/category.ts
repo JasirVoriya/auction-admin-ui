@@ -28,6 +28,14 @@ export const updateCategory = (data: any) =>
     method: Method.PUT,
     data
   });
+/**
+ * @description 查询单个分类
+ */
+export const getCategory = (id: String) =>
+  request({
+    url: `/category/${id}`,
+    method: Method.GET
+  });
 
 /**
  * @description 查询顶级分类
@@ -35,6 +43,14 @@ export const updateCategory = (data: any) =>
 export const getTopCategory = () =>
   request({
     url: "/category",
+    method: Method.GET
+  });
+/**
+ * @description 查询所有分类
+ */
+export const getAllCategory = () =>
+  request({
+    url: "/category/all",
     method: Method.GET
   });
 /**

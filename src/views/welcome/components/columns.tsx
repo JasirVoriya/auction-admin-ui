@@ -5,6 +5,7 @@ import Location from "@iconify-icons/ep/location";
 import Iphone from "@iconify-icons/ep/iphone";
 import Notebook from "@iconify-icons/ep/notebook";
 import User from "@iconify-icons/ri/user-3-fill";
+import { useMyUserStore } from "@/store/modules/my-user";
 
 export function useColumns() {
   const lists = [
@@ -25,7 +26,7 @@ export function useColumns() {
           用户名
         </div>
       ),
-      value: "乐于分享的程序员小铭"
+      value: useMyUserStore().userInfo.username
     },
     {
       labelRenderer: () => (
@@ -33,22 +34,11 @@ export function useColumns() {
           <el-icon>
             <iconify-icon-offline icon={Iphone} />
           </el-icon>
-          手机号
+          邮箱
         </div>
       ),
-      value: "123456789"
+      value: useMyUserStore().userInfo.email
     },
-    {
-      labelRenderer: () => (
-        <div class="flex items-center">
-          <el-icon>
-            <iconify-icon-offline icon={Location} />
-          </el-icon>
-          居住地
-        </div>
-      ),
-      value: "中国"
-    }
   ];
 
   const columnsB = [

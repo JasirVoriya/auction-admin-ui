@@ -1,12 +1,44 @@
 import { defineStore } from "pinia";
 
-export const useUserStore = defineStore("user", {
+export const useMyUserStore = defineStore("user", {
   state: () => ({
     uuid: "",
     accessToken: "",
     refreshToken: "",
-    userInfo: {} as any
+    userInfo: {} as any,
+    postGoods: {
+      categoryIds: [],
+      name: null,
+      intro: null,
+      price: null,
+      cover: null,
+      startingPrice: null,
+      increment: null,
+      deposit: null,
+      startTime: null,
+      endTime: null
+    }
   }),
+  actions: {
+    logout() {
+      this.accessToken = "";
+      this.refreshToken = "";
+      this.userInfo = {};
+    },
+    clearPostGoods() {
+      this.postGoods = {
+        categoryIds: [],
+        name: null,
+        intro: null,
+        cover: null,
+        startingPrice: null,
+        increment: null,
+        deposit: null,
+        startTime: null,
+        endTime: null
+      };
+    }
+  },
   getters: {
     isLogin: state => {
       return (

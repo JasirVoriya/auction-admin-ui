@@ -1,14 +1,20 @@
 <script setup lang="ts">
 defineOptions({ name: "GoodsPost" });
+import { useMyUserStore } from "@/store/modules/my-user";
+import * as goodsApi from "@/api/goods";
 import { ref } from "vue";
 import InputGoodsDetail from "./InputGoodsDetail.vue";
-import success from "@/views/result/success.vue";
+import success from "./success.vue";
 const current = ref(1);
-const clickStep = (step: number) => {
-  current.value += step;
-  if (current.value < 1 || current.value > 2) {
-    current.value -= step;
-  }
+const successGoods = ref({} as any);
+const submit = () => {
+  goodsApi.addGoods(useMyUserStore().postGoods).then(res => {
+    console.log(useMyUserStore().postGoods);
+    useMyUserStore().clearPostGoods();
+    console.log(res);
+    successGoods.value = res;
+    current.value = 2;
+  });
 };
 </script>
 <template>
@@ -21,24 +27,17 @@ const clickStep = (step: number) => {
     </div>
     <div class="bg-white m-3 rounded-xl shadow-xl">
       <input-goods-detail v-if="current === 1" />
-      <success v-if="current === 2" />
+      <success :goods="successGoods" v-if="current === 2" />
     </div>
     <div
       class="absolute bottom-0 flex gap-2 justify-center w-full bg-yellow-100 p-3"
+      v-if="current === 1"
     >
       <button
-        :disabled="current === 1"
         class="bg-rose-500 text-xs text-white px-4 py-2 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
-        @click="clickStep(-1)"
+        @click="submit()"
       >
-        上一步
-      </button>
-      <button
-        :disabled="current === 3"
-        class="bg-rose-500 text-xs text-white px-4 py-2 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
-        @click="clickStep(1)"
-      >
-        下一步
+        发布
       </button>
     </div>
   </div>

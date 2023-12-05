@@ -6,7 +6,7 @@ export default {
   },
   children: [
     {
-      path: "/member/list/index",
+      path: "/member/list",
       name: "MemberList",
       component: () => import("@/views/member/list/index.vue"),
       meta: {
@@ -14,12 +14,12 @@ export default {
       }
     },
     {
-      path: "/member/recycle/index",
+      path: "/member/recycle",
       name: "MemberRecycle",
       component: () => import("@/views/member/recycle/index.vue"),
       meta: {
         title: "回收站"
       }
-    }
+    },
   ]
 } as RouteConfigsTable;

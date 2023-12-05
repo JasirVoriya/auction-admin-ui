@@ -8,7 +8,7 @@ import { getReleases } from "@/api/list";
 import TypeIt from "@/components/ReTypeit";
 import { useWindowSize } from "@vueuse/core";
 import { ref, computed, markRaw } from "vue";
-import Github from "./components/Github.vue";
+import Profile from "./components/Profile.vue";
 import { randomColor } from "@pureadmin/utils";
 import { useRenderFlicker } from "@/components/ReFlicker";
 
@@ -137,7 +137,7 @@ getReleases().then(({ data }) => {
             >
               <TypeIt
                 :className="'type-it1'"
-                :values="['GitHub信息']"
+                :values="['管理员信息']"
                 :cursor="false"
                 :speed="120"
               />
@@ -146,7 +146,7 @@ getReleases().then(({ data }) => {
           <el-skeleton animated :rows="7" :loading="loading">
             <template #default>
               <el-scrollbar :height="`calc(${height}px - 35vh - 340px)`">
-                <Github />
+                <Profile />
               </el-scrollbar>
             </template>
           </el-skeleton>
