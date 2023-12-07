@@ -14,14 +14,6 @@ export default {
       }
     },
     {
-      path: "/goods/category",
-      name: "GoodsCategory",
-      component: () => import("@/views/goods/category/index.vue"),
-      meta: {
-        title: "商品分类"
-      }
-    },
-    {
       path: "/goods/post",
       name: "GoodsPost",
       component: () => import("@/views/goods/post/index.vue"),

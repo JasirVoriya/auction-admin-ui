@@ -36,23 +36,6 @@ export const getCategory = (id: String) =>
     url: `/category/${id}`,
     method: Method.GET
   });
-
-/**
- * @description 查询顶级分类
- */
-export const getTopCategory = () =>
-  request({
-    url: "/category",
-    method: Method.GET
-  });
-/**
- * @description 查询所有分类
- */
-export const getAllCategory = () =>
-  request({
-    url: "/category/all",
-    method: Method.GET
-  });
 /**
  * @description 查询子分类
  * @param {String} parentId - 父分类的 ID
@@ -62,3 +45,37 @@ export const getChildrenCategory = (parentId: String) =>
     url: `/category/${parentId}/children`,
     method: Method.GET
   });
+/**
+* @description 查询顶级分类：民间珍品
+*/
+export const getTopCategory = () =>
+  request({
+    url: "/category",
+    method: Method.GET
+  });
+/**
+* @description 查询所有分类：民间珍品
+*/
+export const getAllCategory = () =>
+  request({
+    url: "/category/all",
+    method: Method.GET
+  });
+
+/**
+* @description 查询顶级分类：司法资产
+*/
+export const getJudicialTopCategory = () => {
+  const url = "/category/judicial/top";
+  const method = Method.GET;
+  return request({ url, method });
+};
+
+/**
+ * @description 查询所有分类：司法资产
+ */
+export const getJudicialAllCategory = () => {
+  const url = "/category/judicial/all";
+  const method = Method.GET;
+  return request({ url, method });
+};

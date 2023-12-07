@@ -13,19 +13,31 @@ import * as commonApi from "@/api/common";
 
 //监听date的变化,并将值赋给goods
 const goods = ref(useMyUserStore().postGoods);
+const goodsType = ref(null);
 const dateTime = ref<[Date, Date]>([new Date(), new Date()]);
+const getAllCategory = () => {
+  if (goodsType.value === "民间珍品") {
+    categoryApi.getAllCategory().then(res => {
+      options.value = res;
+    });
+  } else {
+    categoryApi.getJudicialAllCategory().then(res => {
+      options.value = res;
+    });
+  }
+};
+const options = ref([]);
+onMounted(() => {
+  getAllCategory();
+});
 watch(dateTime, (newVal, oldVal) => {
   goods.value.startTime = newVal[0];
   goods.value.endTime = newVal[1];
 });
-const options = ref([]);
-onMounted(() => {
-  //获取所有分类
-  categoryApi.getAllCategory().then(res => {
-    options.value = res;
-  });
+watch(goodsType, (newVal, oldVal) => {
+  goods.value.goodsType = newVal;
+  getAllCategory();
 });
-
 const headers = ref({
   accessToken: useMyUserStore().accessToken,
   refreshToken: useMyUserStore().refreshToken,
@@ -42,7 +54,7 @@ const handleCoverSuccess: UploadProps["onSuccess"] = (res, uploadFile) => {
 };
 
 const beforeCoverUpload: UploadProps["beforeUpload"] = rawFile => {
-  if (rawFile.type !== "image/jpeg") {
+  if (["image/png", "image/jpg", "image/jpeg"].includes(rawFile.type)) {
     ElMessage.error("picture must be JPG format!");
     return false;
   } else if (rawFile.size / 1024 / 1024 > 2) {
@@ -90,7 +102,19 @@ onBeforeUnmount(() => {
       <div class="bg-gray-100 m-3 p-2 border-[1px] border-gray-200 rounded-sm">
         <p>基本信息</p>
       </div>
+
       <div class="m-3 p-2 pl-32 flex flex-col gap-4">
+        <div class="flex items-center gap-2">
+          <p class="text-xs before:content-['*'] before:text-rose-600">
+            商品类别
+          </p>
+          <div class="w-64">
+            <el-radio-group v-model="goodsType" class="ml-4">
+              <el-radio label="民间珍品" size="large">民间珍品</el-radio>
+              <el-radio label="司法资产" size="large">司法资产</el-radio>
+            </el-radio-group>
+          </div>
+        </div>
         <div class="flex items-center gap-2">
           <p class="text-xs before:content-['*'] before:text-rose-600">
             商品分类
@@ -142,14 +166,15 @@ onBeforeUnmount(() => {
             拍卖时间
           </p>
           <div class="w-[400px]">
-            <div class="flex justify-between gap-5 p-2 bg-yellow-100 my-1 rounded-md">
+            <div
+              class="flex justify-between gap-5 p-2 bg-yellow-100 my-1 rounded-md"
+            >
               <p class="text-xs before:content-['*'] before:text-rose-600">
                 开始时间：{{ goods.startTime }}
               </p>
               <p class="text-xs before:content-['*'] before:text-rose-600">
                 结束时间：{{ goods.endTime }}
               </p>
-
             </div>
             <el-date-picker
               v-model="dateTime"
@@ -218,7 +243,7 @@ onBeforeUnmount(() => {
           <Editor
             v-model="goods.intro"
             :defaultConfig="editorConfig"
-            style="height: 500px; overflow-y: hidden"
+            class="min-h-[400px]"
             @onCreated="handleCreated"
           />
         </div>

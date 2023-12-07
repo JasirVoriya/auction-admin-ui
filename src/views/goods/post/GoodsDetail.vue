@@ -21,7 +21,7 @@ goodsApi.getGoods(props.goodsId).then(res => {
 const editorRef = shallowRef();
 const editorConfig = {
   readOnly: true,
-  scroll : false
+  scroll: false
 };
 const handleCreated = editor => {
   // 记录 editor 实例，重要！
@@ -60,20 +60,22 @@ onBeforeUnmount(() => {
           </div>
           <div class="flex items-center gap-2">
             <p class="text-xs before:content-['*'] before:text-rose-600">
+              商品类别
+            </p>
+            <div class="text-sm text-gray-500 font-bold">
+              <span class="flex divide-x-[1px]">
+                {{ goods.goodsType }}
+              </span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <p class="text-xs before:content-['*'] before:text-rose-600">
               商品名称
             </p>
             <div class="text-sm text-gray-500 font-bold">
               <span class="flex divide-x-[1px]">
                 {{ goods.name }}
               </span>
-            </div>
-          </div>
-          <div class="flex items-center gap-2">
-            <p class="text-xs before:content-['*'] before:text-rose-600">
-              商品价格
-            </p>
-            <div class="text-sm text-rose-500 font-bold">
-              <span class="flex divide-x-[1px]"> ￥{{ goods.price }} </span>
             </div>
           </div>
           <div class="flex items-center gap-2">

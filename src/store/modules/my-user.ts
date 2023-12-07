@@ -8,9 +8,9 @@ export const useMyUserStore = defineStore("user", {
     userInfo: {} as any,
     postGoods: {
       categoryIds: [],
+      goodsType: null,
       name: null,
       intro: null,
-      price: null,
       cover: null,
       startingPrice: null,
       increment: null,
@@ -28,6 +28,7 @@ export const useMyUserStore = defineStore("user", {
     clearPostGoods() {
       this.postGoods = {
         categoryIds: [],
+        goodsType: null,
         name: null,
         intro: null,
         cover: null,

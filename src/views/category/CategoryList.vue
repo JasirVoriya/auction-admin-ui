@@ -3,16 +3,22 @@ defineOptions({
   // name 作为一种规范最好必须写上并且和路由的name保持一致
   name: "GoodsCategory"
 });
+const props = defineProps({
+  type: Number
+});
 import { ref } from "vue";
 import CategoryItem from "./CategoryItem.vue";
+import { type } from "os";
 import * as categoryApi from "@/api/category";
 import { ElMessage } from "element-plus";
 import { onMounted } from "vue";
 const addVisible = ref(false);
 const newName = ref("");
 const categoryList = ref([]);
+const getTopCategory =
+  props.type === 1 ? categoryApi.getTopCategory : categoryApi.getJudicialTopCategory;
 onMounted(() => {
-  categoryApi.getTopCategory().then(res => {
+  getTopCategory().then(res => {
     categoryList.value = res;
   });
 });
@@ -20,11 +26,13 @@ const addCategory = () => {
   categoryApi
     .addCategory({
       name: newName.value,
-      level: 1
+      level: 1,
+      type: props.type
     })
     .then(res => {
       ElMessage.success("添加成功");
       console.log(res);
+      categoryList.value.push(res);
     });
 };
 </script>
@@ -52,12 +60,15 @@ const addCategory = () => {
         <span class="flex-1">状态</span>
         <span class="flex-1">操作</span>
       </div>
-      <div>
+      <div v-if="categoryList.length!==0">
         <category-item
           v-for="cate in categoryList"
           :key="cate.id"
           :category="cate"
         />
+      </div>
+      <div class="flex justify-center" v-else>
+        <span class="text-gray-500 p-10">没有分类</span>
       </div>
     </div>
   </div>
