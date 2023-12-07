@@ -22,8 +22,8 @@ export function viteBuildInfo(): Plugin {
         bold(
           green(
             `👏欢迎使用${blue(
-              "[vue-pure-admin]"
-            )}，如果您感觉不错，记得点击后面链接给个star哦💖 https://github.com/pure-admin/vue-pure-admin`
+              "[拍卖平台后台管理]"
+            )}，如果您感觉不错，记得点击后面链接给个关注哦💖 https://github.com/JasirVoriya`
           )
         )
       );
