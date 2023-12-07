@@ -54,14 +54,11 @@ const handleCurrentChange = (val: number) => {
     </div>
     <div>
       <div>
-        <el-table border :data="memberList" style="width: 100%">
+        <el-table border :data="memberList">
           <el-table-column fixed prop="name" label="会员头像" width="100">
             <template #default="scope">
               <div class="flex">
-                <img
-                  :src="scope.row.avatar"
-                  class="w-16 h-16"
-                />
+                <img :src="scope.row.avatar" class="w-16 h-16" />
               </div>
             </template>
           </el-table-column>
@@ -71,19 +68,19 @@ const handleCurrentChange = (val: number) => {
           <el-table-column prop="money" label="余额" width="100" />
           <el-table-column prop="updateTime" label="最近修改" width="100" />
         </el-table>
-        <div class="flex justify-center pt-3">
-          <el-pagination
-            v-model:current-page="pageData.page"
-            v-model:page-size="pageData.size"
-            :page-sizes="[10, 20, 30, 40, 50, 100]"
-            small
-            background
-            layout="total, sizes, prev, pager, next, jumper"
-            :total="pageData.total"
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-          />
-        </div>
+      </div>
+      <div class="flex justify-center pt-3">
+        <el-pagination
+          v-model:current-page="pageData.page"
+          v-model:page-size="pageData.size"
+          :page-sizes="[10, 20, 30, 40, 50, 100]"
+          small
+          background
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="pageData.total"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        />
       </div>
     </div>
   </div>
