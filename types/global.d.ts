@@ -95,7 +95,6 @@ declare global {
     ShowLogo?: boolean;
     ShowModel?: string;
     MenuArrowIconNoTransition?: boolean;
-    CachingAsyncRoutes?: boolean;
     TooltipEffect?: Effect;
     ResponsiveStorageNameSpace?: string;
     MapConfigure?: {

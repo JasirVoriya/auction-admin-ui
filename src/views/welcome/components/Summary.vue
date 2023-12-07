@@ -1,11 +1,15 @@
 <template>
   <div class="flex gap-5">
     <el-card class="flex-2" shadow="never">
-      <div class="flex justify-center font-bold py-3 text-xl text-gray-600">
-        <span>当前在线人数</span>
-      </div>
-      <div class="flex justify-center text-4xl font-bold text-orange-400">
-        <span>3</span>
+      <div class="flex flex-col">
+        <div class="flex justify-center font-bold py-3 text-xl text-gray-600">
+          <span>当前在线人数</span>
+        </div>
+        <div
+          class="flex justify-center text-4xl font-bold text-orange-400"
+        >
+          <span>3</span>
+        </div>
       </div>
     </el-card>
     <el-card class="flex-1" shadow="never">
@@ -59,15 +63,21 @@
           <span class="text-xl font-bold text-rose-400">0</span>
         </div>
         <div class="flex flex-col p-5 bg-gray-200 rounded-md">
-          <span class="font-bold py-3 text-sm text-gray-600">今日新增会员数</span>
+          <span class="font-bold py-3 text-sm text-gray-600"
+            >今日新增会员数</span
+          >
           <span class="text-xl font-bold text-rose-400">1</span>
         </div>
         <div class="flex flex-col p-5 bg-gray-200 rounded-md">
-          <span class="font-bold py-3 text-sm text-gray-600">今日上架拍品数</span>
+          <span class="font-bold py-3 text-sm text-gray-600"
+            >今日上架拍品数</span
+          >
           <span class="text-xl font-bold text-rose-400">2</span>
         </div>
         <div class="flex flex-col p-5 bg-gray-200 rounded-md">
-          <span class="font-bold py-3 text-sm text-gray-600">今日成交订单数</span>
+          <span class="font-bold py-3 text-sm text-gray-600"
+            >今日成交订单数</span
+          >
           <span class="text-xl font-bold text-rose-400">5</span>
         </div>
       </div>
