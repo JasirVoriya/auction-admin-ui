@@ -1,6 +1,6 @@
 {
-  "Version": "4.5.0",
-  "Title": "PureAdmin",
+  "Version": "1.0",
+  "Title": "拍卖平台管理",
   "FixedHeader": true,
   "HiddenSideBar": false,
   "MultiTagsCache": false,

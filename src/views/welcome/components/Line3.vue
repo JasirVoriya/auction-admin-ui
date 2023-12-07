@@ -40,7 +40,7 @@ setOptions(
       textStyle: {
         color: "#90979c"
       },
-      data: ["访问量", "订单量"]
+      data: ["交易额"]
     },
     calculable: true,
     xAxis: [
@@ -79,16 +79,16 @@ setOptions(
     ],
     series: [
       {
-        name: "访问量",
+        name: "交易额",
         type: "line",
         smooth: true,
-        areaStyle: {
-          color: "rgba(214,245,233,1)",
-          opacity: 0.5
-        },
         label: {
           show: true,
           position: "top"
+        },
+        areaStyle: {
+          color: "rgba(214,245,233,1)",
+          opacity: 0.5
         },
         symbolSize: 10,
         symbol: "circle",
@@ -111,41 +111,6 @@ setOptions(
           509, 917, 2455, 2610, 2719, 3033, 3044, 3085, 2708, 2809, 2117, 2000,
           1455, 1210, 719, 733, 944, 2285, 2208, 3372, 3936, 3693, 2962, 2810,
           3519, 2455, 2610, 2719, 2484, 2078
-        ]
-      },
-      {
-        name: "订单量",
-        type: "line",
-        smooth: true,
-        label: {
-          show: true,
-          position: "top"
-        },
-        areaStyle: {
-          color: "rgba(214,227,253,1)",
-          opacity: 0.5
-        },
-        symbolSize: 10,
-        symbol: "circle",
-        markPoint: {
-          label: {
-            color: "#fff"
-          },
-          data: [
-            {
-              type: "max",
-              name: "最大值"
-            },
-            {
-              type: "min",
-              name: "最小值"
-            }
-          ]
-        },
-        data: [
-          2136, 3693, 2962, 3810, 3519, 3484, 3915, 3823, 3455, 4310, 4019,
-          3433, 3544, 3885, 4208, 3372, 3484, 3915, 3748, 3675, 4009, 4433,
-          3544, 3285, 4208, 3372, 3484, 3915, 3823, 4265, 4298
         ]
       }
     ],
@@ -176,8 +141,8 @@ setOptions(
 
 <template>
   <el-card shadow="never">
-    <div class="flex font-bold pl-10 py-3 text-xl text-gray-600">
-      <span>平台订单和访问趋势</span>
+    <div class="flex justify-center font-bold pl-10 py-3 text-xl text-gray-600">
+      <span>交易走势</span>
     </div>
     <div ref="chartRef" style="width: 100%; height: 60vh" />
   </el-card>

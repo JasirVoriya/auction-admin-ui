@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Search from "./search/index.vue";
-import Notice from "./notice/index.vue";
 import mixNav from "./sidebar/mixNav.vue";
 import { useNav } from "@/layout/hooks/useNav";
 import Breadcrumb from "./sidebar/breadCrumb.vue";
@@ -47,8 +46,6 @@ const { t, locale, translationCh, translationEn } = useTranslationLang();
     <div v-if="layout === 'vertical'" class="vertical-header-right">
       <!-- 菜单搜索 -->
       <Search />
-      <!-- 通知 -->
-      <Notice id="header-notice" />
       <!-- 国际化 -->
       <el-dropdown id="header-translation" trigger="click">
         <globalization

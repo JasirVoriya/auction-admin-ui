@@ -40,7 +40,7 @@ setOptions(
       textStyle: {
         color: "#90979c"
       },
-      data: ["访问量", "订单量"]
+      data: ["访客数UV", "浏览量PV"]
     },
     calculable: true,
     xAxis: [
@@ -79,16 +79,16 @@ setOptions(
     ],
     series: [
       {
-        name: "访问量",
+        name: "访客数UV",
         type: "line",
         smooth: true,
-        areaStyle: {
-          color: "rgba(214,245,233,1)",
-          opacity: 0.5
-        },
         label: {
           show: true,
           position: "top"
+        },
+        areaStyle: {
+          color: "rgba(214,245,233,1)",
+          opacity: 0.5
         },
         symbolSize: 10,
         symbol: "circle",
@@ -114,7 +114,7 @@ setOptions(
         ]
       },
       {
-        name: "订单量",
+        name: "浏览量PV",
         type: "line",
         smooth: true,
         label: {
@@ -176,8 +176,8 @@ setOptions(
 
 <template>
   <el-card shadow="never">
-    <div class="flex font-bold pl-10 py-3 text-xl text-gray-600">
-      <span>平台订单和访问趋势</span>
+    <div class="flex justify-center font-bold pl-10 py-3 text-xl text-gray-600">
+      <span>流量走势</span>
     </div>
     <div ref="chartRef" style="width: 100%; height: 60vh" />
   </el-card>

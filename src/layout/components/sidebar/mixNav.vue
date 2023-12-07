@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import extraIcon from "./extraIcon.vue";
 import Search from "../search/index.vue";
-import Notice from "../notice/index.vue";
 import { isAllEmpty } from "@pureadmin/utils";
 import { useNav } from "@/layout/hooks/useNav";
 import { transformI18n } from "@/plugins/i18n";
@@ -97,8 +96,6 @@ watch(
     <div class="horizontal-header-right">
       <!-- 菜单搜索 -->
       <Search />
-      <!-- 通知 -->
-      <Notice id="header-notice" />
       <!-- 国际化 -->
       <el-dropdown id="header-translation" trigger="click">
         <globalization

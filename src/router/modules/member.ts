@@ -13,13 +13,13 @@ export default {
         title: "会员列表"
       }
     },
-    {
-      path: "/member/recycle",
-      name: "MemberRecycle",
-      component: () => import("@/views/member/recycle/index.vue"),
-      meta: {
-        title: "回收站"
-      }
-    },
+    // {
+    //   path: "/member/recycle",
+    //   name: "MemberRecycle",
+    //   component: () => import("@/views/member/recycle/index.vue"),
+    //   meta: {
+    //     title: "回收站"
+    //   }
+    // },
   ]
 } as RouteConfigsTable;
