@@ -328,9 +328,6 @@ devDependencies:
   vite-plugin-compression:
     specifier: ^0.5.1
     version: 0.5.1(vite@5.0.0)
-  vite-plugin-fake-server:
-    specifier: ^2.0.0
-    version: 2.0.0
   vite-plugin-remove-console:
     specifier: ^2.1.1
     version: 2.1.1
@@ -3116,13 +3113,6 @@ packages:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
     dev: false
 
-  /bundle-import@0.0.1:
-    resolution: {integrity: sha512-L0z0iPX7t7ff5eZsK7oMEH+Ly2lzJczFKPHwrta6X8SF64a20R3wOrAOYK1MzHZVaWWugg9qlSTVfVwqvQJ2dw==}
-    dependencies:
-      get-tsconfig: 4.7.2
-      import-from-string: 0.0.4
-    dev: true
-
   /bundle-name@3.0.0:
     resolution: {integrity: sha512-PKA4BeSvBpQKQ8iPOGCSiell+N8P+Tf1DlwqmYhpe2gAhKPHn8EYOxVT+ShuGmhg8lN8XiSlS80yiExKXrURlw==}
     engines: {node: '>=12'}
@@ -4648,12 +4638,6 @@ packages:
     engines: {node: '>=16'}
     dev: true
 
-  /get-tsconfig@4.7.2:
-    resolution: {integrity: sha512-wuMsz4leaj5hbGgg4IvDU0bqJagpftG5l5cXIAvo8uZrqn0NJqwtfupTN00VnkQJPcIRrxYrm1Ue24btpCha2A==}
-    dependencies:
-      resolve-pkg-maps: 1.0.0
-    dev: true
-
   /giget@1.1.3:
     resolution: {integrity: sha512-zHuCeqtfgqgDwvXlR84UNgnJDuUHQcNI5OqWqFxxuk2BshuKbYhJWdxBsEo4PvKqoGh23lUAIvBNpChMLv7/9Q==}
     hasBin: true
@@ -4990,13 +4974,6 @@ packages:
       resolve-from: 4.0.0
     dev: true
 
-  /import-from-string@0.0.4:
-    resolution: {integrity: sha512-ZmtWHOGv55OEFb3HxfQH4L4vAR7g3HUm82N5LmvXugiXlaZ1j/epItoUDjQ+gJ+MjNl+apczmCnqGFq8q2CM6w==}
-    dependencies:
-      esbuild: 0.19.5
-      import-meta-resolve: 3.1.1
-    dev: true
-
   /import-lazy@4.0.0:
     resolution: {integrity: sha512-rKtvo6a868b5Hu3heneU+L4yEQ4jYKLtjpnPeUdK7h0yzXGmyBTypknlkCvHFBqfX9YlorEiMM6Dnq/5atfHkw==}
     engines: {node: '>=8'}
@@ -5010,10 +4987,6 @@ packages:
       pkg-dir: 4.2.0
       resolve-cwd: 3.0.0
     dev: false
-
-  /import-meta-resolve@3.1.1:
-    resolution: {integrity: sha512-qeywsE/KC3w9Fd2ORrRDUw6nS/nLwZpXgfrOc2IILvZYnCaEMd+D56Vfg9k4G29gIeVi3XKql1RQatME8iYsiw==}
-    dev: true
 
   /imurmurhash@0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
@@ -6569,10 +6542,6 @@ packages:
       minipass: 7.0.4
     dev: true
 
-  /path-to-regexp@6.2.1:
-    resolution: {integrity: sha512-JLyh7xT1kizaEvcaXOQwOc2/Yhw6KZOvPf1S8401UyLk86CU79LN3vl7ztXGm/pZ+YjoyAJ4rxmHwbkBXJX+yw==}
-    dev: true
-
   /path-type@4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
@@ -7583,10 +7552,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       global-dirs: 0.1.1
-    dev: true
-
-  /resolve-pkg-maps@1.0.0:
-    resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
     dev: true
 
   /resolve.exports@1.1.1:
@@ -8785,17 +8750,6 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-fake-server@2.0.0:
-    resolution: {integrity: sha512-RCKS7te5lNzJFEQqPEaMqthwJhYaYMUMAPj7no4tmirqf5YEd6b4t7JMSGTkP2HPSplPE/uDQ56k9XjNreq2CQ==}
-    dependencies:
-      bundle-import: 0.0.1
-      chokidar: 3.5.3
-      fast-glob: 3.3.2
-      path-to-regexp: 6.2.1
-      picocolors: 1.0.0
-      xhook: 1.6.2
-    dev: true
-
   /vite-plugin-remove-console@2.1.1:
     resolution: {integrity: sha512-AQOsKl9+1YO82otwSchf+P8SRo4RhMvPjOvjm9DXOnkff0SBwBPAzazEn06IUjhsm/zX4miMgicCQH1hPdktrw==}
     dev: true
@@ -9198,10 +9152,6 @@ packages:
       eventemitter3: 4.0.7
       xgplayer-subtitles: 3.0.10(core-js@3.33.2)
     dev: false
-
-  /xhook@1.6.2:
-    resolution: {integrity: sha512-kmOpJ5SyqpubjIgVXWIdTWYqZmTr3mlqaCa8ISg2IirkpvUOfbWeQbJICqVjQ8fo5tkG3FsKi/Pb2TvUOlMuMQ==}
-    dev: true
 
   /xlsx@0.18.5:
     resolution: {integrity: sha512-dmg3LCjBPHZnQp5/F/+nnTa+miPJxUXB6vtk42YjBBKayDNagxGEeIdWApkYPOf3Z3pm3k62Knjzp7lMeTEtFQ==}
